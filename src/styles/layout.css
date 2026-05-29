@@ -1,0 +1,279 @@
+/* --- LAYOUT DO DASHBOARD --- */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar lateral */
+.sidebar {
+  width: 280px; /* Aumentado de 260px para acomodar texto maior */
+  background: rgba(15, 23, 42, 0.85); /* Aumentado contraste */
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-right: 2px solid var(--surface-border); /* Reforçado */
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  z-index: 100;
+  transition: transform var(--transition-normal);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+}
+
+.brand-icon {
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Aumentado */
+  background: var(--primary-glow);
+  border-radius: 10px;
+  filter: drop-shadow(0 0 4px var(--primary-color));
+}
+
+.brand-name {
+  font-size: 1.75rem; /* Aumentado de 1.5rem */
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--primary-color) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Aumentado de 8px */
+  flex-grow: 1;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px; /* Aumentado de 12px 16px para alvo de toque maior */
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  font-weight: 600; /* Negrito adicionado */
+  font-size: 1.05rem; /* Aumentado de 0.95rem */
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link.active {
+  color: var(--text-primary);
+  background: var(--primary-glow);
+  border-left: 4px solid var(--primary-color); /* Borda mais grossa */
+  padding-left: 14px; /* Compensar a borda */
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  border-top: 2px solid var(--surface-border);
+  padding-top: 24px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 0 10px;
+}
+
+.avatar {
+  width: 44px; /* Aumentado de 36px */
+  height: 44px; /* Aumentado */
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: white;
+  font-size: 1.05rem; /* Aumentado */
+}
+
+.user-name {
+  font-size: 1.05rem; /* Aumentado */
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.user-role {
+  font-size: 0.85rem; /* Aumentado de 0.75rem */
+  color: var(--text-muted);
+}
+
+/* Área de conteúdo principal */
+.main-content {
+  flex-grow: 1;
+  margin-left: 280px; /* Aumentado */
+  padding: 40px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 36px;
+}
+
+.header-title {
+  font-size: 2.25rem; /* Aumentado de 2rem */
+  font-weight: 855; /* Negrito mais forte */
+}
+
+.header-subtitle {
+  font-size: 1.1rem; /* Aumentado de 0.95rem */
+  color: var(--text-secondary);
+  margin-top: 6px;
+}
+
+/* --- GRID DO DASHBOARD --- */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Aumentado largura mínima */
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+.stat-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-label {
+  font-size: 1.05rem; /* Aumentado de 0.9rem */
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.stat-value {
+  font-size: 2.5rem; /* Aumentado de 2.25rem */
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.1;
+  background: linear-gradient(135deg, var(--text-primary) 60%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-unit {
+  font-size: 1.05rem; /* Aumentado de 0.9rem */
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.stat-icon {
+  padding: 16px; /* Aumentado */
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-icon.primary {
+  background: var(--primary-glow);
+  color: var(--primary-color);
+}
+
+.stat-icon.secondary {
+  background: var(--secondary-glow);
+  color: var(--secondary-color);
+}
+
+.stat-footer {
+  margin-top: 14px;
+  font-size: 0.9rem; /* Aumentado de 0.8rem */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.grid-2col {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 1024px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 260px;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 24px; /* Aumentado */
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- AVISO MÉDICO (Disclaimer) --- */
+.medical-disclaimer-bar {
+  margin-top: auto; /* Empurra para o rodapé se o conteúdo for menor */
+  padding: 16px 24px;
+  background: rgba(245, 158, 11, 0.12); /* Fundo âmbar suave */
+  border: 2px solid rgba(245, 158, 11, 0.35); /* Borda visível de aviso */
+  border-radius: var(--radius-md);
+  color: #fde68a; /* Amarelo muito claro para alto contraste */
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.medical-disclaimer-bar p {
+  margin: 0;
+}
+
+.disclaimer-icon {
+  color: #fbbf24; /* Ícone dourado */
+  flex-shrink: 0;
+}
