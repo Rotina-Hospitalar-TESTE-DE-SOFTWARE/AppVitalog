@@ -61,7 +61,7 @@ Você precisará ter o **Node.js** instalado na sua máquina (versão 18 ou supe
 
 1. **Baixe ou clone o repositório**:
    ```bash
-   git clone <link-do-seu-repositorio>
+   git clone <https://github.com/Rotina-Hospitalar-TESTE-DE-SOFTWARE/AppVitalog.git>
    cd Vitalog
    ```
 
