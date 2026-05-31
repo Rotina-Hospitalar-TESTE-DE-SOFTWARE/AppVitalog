@@ -1,0 +1,107 @@
+{{#each errors}}
+<div class="alert alert-error">{{this}}</div>
+{{/each}}
+{{#each success}}
+<div class="alert alert-success">{{this}}</div>
+{{/each}}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">📋 Histórico de Medições</h1>
+    <p class="page-subtitle">Exibindo últimos 30 dias — {{totalMedicoes}} registro(s)</p>
+  </div>
+  <div class="header-actions">
+    <a href="/exportar" class="btn btn-outline">↓ Exportar</a>
+    <a href="/medicoes/pressao/nova" class="btn btn-outline">+ Pressão</a>
+    <a href="/medicoes/glicemia/nova" class="btn btn-primary">+ Glicemia</a>
+  </div>
+</div>
+
+{{#if medicoes}}
+<div class="table-card">
+  <div class="table-filters">
+    <input type="text" id="searchInput" placeholder="🔍 Filtrar registros..." class="search-input" />
+    <div class="filter-btns">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="pressao">Pressão</button>
+      <button class="filter-btn" data-filter="glicemia">Glicemia</button>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table" id="medicaoTable">
+      <thead>
+        <tr>
+          <th>Tipo</th>
+          <th>Data/Hora</th>
+          <th>Valores</th>
+          <th>Unidade</th>
+          <th>Classificação</th>
+          <th>Observação</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each medicoes}}
+        <tr data-tipo="{{tipo}}">
+          <td>
+            <span class="tipo-badge tipo-{{tipo}}">
+              {{#if (eq tipo "pressao")}}🩸 Pressão{{else}}💉 Glicemia{{/if}}
+            </span>
+          </td>
+          <td class="data-cell">{{dataFormatada}}</td>
+          <td class="valor-cell">
+            {{#if (eq tipo "pressao")}}
+              <strong>{{sistolico}}/{{diastolico}}</strong>
+            {{else}}
+              <strong>{{valor}}</strong>
+            {{/if}}
+          </td>
+          <td>{{unidade}}</td>
+          <td>
+            <span class="classif-badge classif-{{classificacao.cls}}">{{classificacao.label}}</span>
+          </td>
+          <td class="obs-cell">{{#if observacao}}{{observacao}}{{else}}—{{/if}}</td>
+          <td class="actions-cell">
+            <a href="/medicoes/{{tipo}}/{{id}}/editar" class="btn-action btn-edit" title="Editar">✏</a>
+            <button class="btn-action btn-delete" title="Excluir"
+              data-id="{{id}}"
+              onclick="confirmarExclusao('{{id}}')">🗑</button>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+{{else}}
+<div class="empty-page">
+  <div class="empty-icon">📋</div>
+  <h2>Nenhuma medição encontrada</h2>
+  <p>Você ainda não registrou medições nos últimos 30 dias.</p>
+  <div class="empty-actions">
+    <a href="/medicoes/pressao/nova" class="btn btn-outline">+ Registrar Pressão</a>
+    <a href="/medicoes/glicemia/nova" class="btn btn-primary">+ Registrar Glicemia</a>
+  </div>
+</div>
+{{/if}}
+
+<div class="aviso-medico">
+  <span class="aviso-icon">⚠</span>
+  <p>Este sistema tem caráter de apoio ao acompanhamento de saúde. <strong>Não constitui diagnóstico médico</strong> nem substitui avaliação clínica profissional.</p>
+</div>
+
+<!-- Modal de confirmação -->
+<div id="modalExclusao" class="modal-overlay" style="display:none">
+  <div class="modal">
+    <div class="modal-icon">🗑</div>
+    <h3>Excluir medição?</h3>
+    <p>Esta ação é permanente e não pode ser desfeita.</p>
+    <div class="modal-actions">
+      <button onclick="cancelarExclusao()" class="btn btn-outline">Cancelar</button>
+      <form id="formExclusao" method="POST">
+        <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+      </form>
+    </div>
+  </div>
+</div>

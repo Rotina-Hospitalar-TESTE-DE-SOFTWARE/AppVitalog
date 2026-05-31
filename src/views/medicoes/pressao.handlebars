@@ -1,0 +1,66 @@
+{{#each errors}}
+<div class="alert alert-error">{{this}}</div>
+{{/each}}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">🩸 {{title}}</h1>
+    <p class="page-subtitle">Informe os valores da medição</p>
+  </div>
+  <a href="/historico" class="btn btn-outline">← Voltar</a>
+</div>
+
+<div class="form-card">
+  <form action="{{#if editando}}/medicoes/pressao/{{editando.id}}{{else}}/medicoes/pressao{{/if}}" method="POST">
+    <div class="form-section">
+      <h3 class="form-section-title">Valores da Pressão</h3>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sistolico">Pressão Sistólica (mmHg) *</label>
+          <input type="number" id="sistolico" name="sistolico"
+            value="{{#if editando}}{{editando.sistolico}}{{/if}}"
+            min="60" max="300" placeholder="Ex: 120" required />
+          <span class="form-hint">Intervalo permitido: 60 – 300 mmHg</span>
+        </div>
+        <div class="form-group">
+          <label for="diastolico">Pressão Diastólica (mmHg) *</label>
+          <input type="number" id="diastolico" name="diastolico"
+            value="{{#if editando}}{{editando.diastolico}}{{/if}}"
+            min="40" max="200" placeholder="Ex: 80" required />
+          <span class="form-hint">Intervalo permitido: 40 – 200 mmHg</span>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dataHora">Data e Horário *</label>
+          <input type="datetime-local" id="dataHora" name="dataHora"
+            value="{{#if editando}}{{dataHoraEdit}}{{else}}{{dataHoraAtual}}{{/if}}" required />
+        </div>
+        <div class="form-group">
+          <label for="observacao">Observação</label>
+          <input type="text" id="observacao" name="observacao"
+            value="{{#if editando}}{{editando.observacao}}{{/if}}"
+            placeholder="Ex: após exercício, em repouso..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="pressao-ref">
+      <h4>Referência de classificação</h4>
+      <div class="ref-grid">
+        <div class="ref-item ref-normal">Normal: &lt;120/80</div>
+        <div class="ref-item ref-elevada">Elevada: 120–129/&lt;80</div>
+        <div class="ref-item ref-hiper1">Estágio 1: 130–139/80–89</div>
+        <div class="ref-item ref-hiper2">Estágio 2: ≥140/≥90</div>
+        <div class="ref-item ref-crise">Crise: &gt;180/&gt;120</div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a href="/historico" class="btn btn-outline">Cancelar</a>
+      <button type="submit" class="btn btn-primary">
+        {{#if editando}}Salvar alterações{{else}}Registrar medição{{/if}}
+      </button>
+    </div>
+  </form>
+</div>

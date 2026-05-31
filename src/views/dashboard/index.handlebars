@@ -1,0 +1,146 @@
+{{#each errors}}
+<div class="alert alert-error">{{this}}</div>
+{{/each}}
+{{#each success}}
+<div class="alert alert-success">{{this}}</div>
+{{/each}}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">Bom dia, {{userName}} 👋</h1>
+    <p class="page-subtitle">Resumo dos últimos 30 dias</p>
+  </div>
+  <div class="header-actions">
+    <a href="/medicoes/pressao/nova" class="btn btn-outline">+ Pressão</a>
+    <a href="/medicoes/glicemia/nova" class="btn btn-primary">+ Glicemia</a>
+  </div>
+</div>
+
+<div class="stats-grid">
+  <div class="stat-card stat-card-blue">
+    <div class="stat-icon">📊</div>
+    <div class="stat-info">
+      <span class="stat-num">{{totalMedicoes}}</span>
+      <span class="stat-label">Total de medições</span>
+    </div>
+  </div>
+  <div class="stat-card stat-card-red">
+    <div class="stat-icon">🩸</div>
+    <div class="stat-info">
+      <span class="stat-num">{{totalPressoes}}</span>
+      <span class="stat-label">Pressões registradas</span>
+    </div>
+  </div>
+  <div class="stat-card stat-card-green">
+    <div class="stat-icon">💉</div>
+    <div class="stat-info">
+      <span class="stat-num">{{totalGlicemias}}</span>
+      <span class="stat-label">Glicemias registradas</span>
+    </div>
+  </div>
+</div>
+
+<div class="dashboard-grid">
+  <!-- Pressão Arterial -->
+  <div class="dash-card">
+    <div class="dash-card-header">
+      <h2>🩸 Última Pressão Arterial</h2>
+      <a href="/medicoes/pressao/nova" class="btn-sm">Registrar</a>
+    </div>
+    {{#if ultimaPressao}}
+    <div class="reading-display">
+      <div class="reading-main">
+        <span class="reading-value">{{ultimaPressao.sistolico}}/{{ultimaPressao.diastolico}}</span>
+        <span class="reading-unit">mmHg</span>
+      </div>
+      <div class="reading-badge badge-{{classificacaoPressao.cls}}">{{classificacaoPressao.label}}</div>
+    </div>
+    <div class="chart-container">
+      <canvas id="chartPressao"></canvas>
+    </div>
+    {{else}}
+    <div class="empty-state">
+      <p>Nenhuma medição registrada</p>
+      <a href="/medicoes/pressao/nova" class="btn btn-outline">Registrar agora</a>
+    </div>
+    {{/if}}
+  </div>
+
+  <!-- Glicemia -->
+  <div class="dash-card">
+    <div class="dash-card-header">
+      <h2>💉 Última Glicemia</h2>
+      <a href="/medicoes/glicemia/nova" class="btn-sm">Registrar</a>
+    </div>
+    {{#if ultimaGlicemia}}
+    <div class="reading-display">
+      <div class="reading-main">
+        <span class="reading-value">{{ultimaGlicemia.valor}}</span>
+        <span class="reading-unit">mg/dL</span>
+      </div>
+      <div class="reading-badge badge-{{classificacaoGlicemia.cls}}">{{classificacaoGlicemia.label}}</div>
+    </div>
+    <div class="chart-container">
+      <canvas id="chartGlicemia"></canvas>
+    </div>
+    {{else}}
+    <div class="empty-state">
+      <p>Nenhuma medição registrada</p>
+      <a href="/medicoes/glicemia/nova" class="btn btn-outline">Registrar agora</a>
+    </div>
+    {{/if}}
+  </div>
+</div>
+
+<div class="aviso-medico">
+  <span class="aviso-icon">⚠</span>
+  <p>Este sistema tem caráter de apoio ao acompanhamento de saúde. <strong>Não constitui diagnóstico médico</strong> nem substitui avaliação clínica profissional.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+  const dadosPressao = {{{dadosPressaoJSON}}};
+  const dadosGlicemia = {{{dadosGlicemiaJSON}}};
+
+  if (dadosPressao.length > 0) {
+    const ctx = document.getElementById('chartPressao').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: dadosPressao.map(d => d.data),
+        datasets: [
+          {
+            label: 'Sistólica',
+            data: dadosPressao.map(d => d.sistolico),
+            borderColor: '#e74c3c', backgroundColor: 'rgba(231,76,60,0.08)',
+            tension: 0.4, pointRadius: 4, borderWidth: 2
+          },
+          {
+            label: 'Diastólica',
+            data: dadosPressao.map(d => d.diastolico),
+            borderColor: '#3498db', backgroundColor: 'rgba(52,152,219,0.08)',
+            tension: 0.4, pointRadius: 4, borderWidth: 2
+          }
+        ]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: false } } }
+    });
+  }
+
+  if (dadosGlicemia.length > 0) {
+    const ctx2 = document.getElementById('chartGlicemia').getContext('2d');
+    new Chart(ctx2, {
+      type: 'line',
+      data: {
+        labels: dadosGlicemia.map(d => d.data),
+        datasets: [{
+          label: 'Glicemia',
+          data: dadosGlicemia.map(d => d.valor),
+          borderColor: '#27ae60', backgroundColor: 'rgba(39,174,96,0.08)',
+          tension: 0.4, pointRadius: 4, borderWidth: 2
+        }]
+      },
+      options: { responsive: true, plugins: { legend: { position: 'bottom' } }, scales: { y: { beginAtZero: false } } }
+    });
+  }
+</script>

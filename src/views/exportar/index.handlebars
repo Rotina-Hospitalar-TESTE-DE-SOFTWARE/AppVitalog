@@ -1,0 +1,66 @@
+{{#each errors}}
+<div class="alert alert-error">{{this}}</div>
+{{/each}}
+{{#each success}}
+<div class="alert alert-success">{{this}}</div>
+{{/each}}
+
+<div class="page-header">
+  <div>
+    <h1 class="page-title">↓ Exportar Histórico</h1>
+    <p class="page-subtitle">Gere relatórios para consultas médicas</p>
+  </div>
+  <a href="/historico" class="btn btn-outline">← Voltar</a>
+</div>
+
+<div class="export-grid">
+  <!-- PDF -->
+  <div class="export-card">
+    <div class="export-icon">📄</div>
+    <h2>Exportar PDF</h2>
+    <p>Gere um relatório em PDF ideal para apresentar durante consultas médicas.</p>
+    <form action="/exportar/pdf" method="POST">
+      <div class="form-group">
+        <label for="periodoPdf">Período</label>
+        <select name="periodo" id="periodoPdf" class="select-input">
+          <option value="7">Últimos 7 dias</option>
+          <option value="15">Últimos 15 dias</option>
+          <option value="30" selected>Últimos 30 dias</option>
+          <option value="365">Últimos 12 meses</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary btn-full">Baixar PDF</button>
+    </form>
+  </div>
+
+  <!-- Excel -->
+  <div class="export-card">
+    <div class="export-icon">📊</div>
+    <h2>Exportar Planilha</h2>
+    <p>Exporte seus dados em formato Excel (.xlsx) para análise detalhada.</p>
+    <form action="/exportar/excel" method="POST">
+      <div class="form-group">
+        <label for="periodoExcel">Período</label>
+        <select name="periodo" id="periodoExcel" class="select-input">
+          <option value="7">Últimos 7 dias</option>
+          <option value="15">Últimos 15 dias</option>
+          <option value="30" selected>Últimos 30 dias</option>
+          <option value="365">Últimos 12 meses</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-success btn-full">Baixar Planilha</button>
+    </form>
+  </div>
+</div>
+
+<div class="export-info">
+  <h3>O que está incluído nos relatórios?</h3>
+  <div class="info-grid">
+    <div class="info-item">✅ Tipo de medição (Pressão / Glicemia)</div>
+    <div class="info-item">✅ Valores registrados com unidades</div>
+    <div class="info-item">✅ Data e horário de cada registro</div>
+    <div class="info-item">✅ Classificação clínica</div>
+    <div class="info-item">✅ Observações adicionadas</div>
+    <div class="info-item">✅ Ordenado do mais recente ao mais antigo</div>
+  </div>
+</div>

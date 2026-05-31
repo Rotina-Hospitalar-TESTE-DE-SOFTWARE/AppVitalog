@@ -1,0 +1,65 @@
+{
+  "users": [
+    {
+      "id": "985839be-5ad1-4f89-b326-6f5b26bbf85e",
+      "nome": "Rhuan Santos Sousa",
+      "email": "rhuansantos.cp@gmail.com",
+      "senha": "$2b$10$4jEBX3T8nazExpDuDE7yZu6tA.CwsegxZTuQJ0HdpuJN1Kx89U9Ze",
+      "telefone": "61998222569",
+      "dataNascimento": "2005-11-22",
+      "criadoEm": "2026-05-31T20:19:07.414Z"
+    },
+    {
+      "id": "a766cb4a-0e80-44bd-8aa2-d07e01b1054c",
+      "nome": "Rhuan Santos Sousa",
+      "email": "rhuan@gmail.com",
+      "senha": "$2b$10$IzNSTEZHG2WdHdoj.8FSaOinF7k.68Tih5JSZAb0Zb9eihp.aopyu",
+      "telefone": "61998222569",
+      "dataNascimento": "2005-11-22",
+      "criadoEm": "2026-05-31T20:20:16.990Z"
+    }
+  ],
+  "medicoes": [
+    {
+      "id": "a23fe397-abf9-4f0d-b3e8-80b2c034f373",
+      "userId": "a766cb4a-0e80-44bd-8aa2-d07e01b1054c",
+      "tipo": "glicemia",
+      "valor": 95,
+      "unidade": "mg/dL",
+      "dataHora": "2026-05-31T17:20",
+      "observacao": "",
+      "criadoEm": "2026-05-31T20:20:46.542Z"
+    },
+    {
+      "id": "32ae192a-c59c-4c3d-872a-6eb9219bb4ff",
+      "userId": "a766cb4a-0e80-44bd-8aa2-d07e01b1054c",
+      "tipo": "glicemia",
+      "valor": 100,
+      "unidade": "mg/dL",
+      "dataHora": "2026-05-04T17:20",
+      "observacao": "",
+      "criadoEm": "2026-05-31T20:20:58.990Z"
+    },
+    {
+      "id": "d86fb67c-a6c7-4f9f-aa8b-4345e3be38d3",
+      "userId": "a766cb4a-0e80-44bd-8aa2-d07e01b1054c",
+      "tipo": "glicemia",
+      "valor": 54,
+      "unidade": "mg/dL",
+      "dataHora": "2026-05-05T17:21",
+      "observacao": "",
+      "criadoEm": "2026-05-31T20:21:13.304Z"
+    },
+    {
+      "id": "a0f7a01b-2a4a-4465-a27c-4e360214aa47",
+      "userId": "a766cb4a-0e80-44bd-8aa2-d07e01b1054c",
+      "tipo": "pressao",
+      "sistolico": 90,
+      "diastolico": 200,
+      "unidade": "mmHg",
+      "dataHora": "2026-05-31T17:21",
+      "observacao": "",
+      "criadoEm": "2026-05-31T20:21:45.911Z"
+    }
+  ]
+}
