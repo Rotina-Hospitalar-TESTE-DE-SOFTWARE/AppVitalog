@@ -1,28 +1,30 @@
-{{#each errors}}
-<div class="alert alert-error">{{this}}</div>
-{{/each}}
-{{#each success}}
-<div class="alert alert-success">{{this}}</div>
-{{/each}}
-
-<div class="auth-card">
-  <div class="auth-header">
-    <div class="auth-logo">❤</div>
-    <h1 class="auth-title">Monitor de Saúde</h1>
-    <p class="auth-subtitle">Acesse sua conta para continuar</p>
+<div class="auth-caixa">
+  <div class="auth-logo-box">
+    <div class="auth-logo-icone">❤️</div>
+    <div class="auth-logo-nome">Monitor<span>Saúde</span></div>
+    <div class="auth-logo-sub">Acompanhe sua saúde com facilidade</div>
   </div>
 
-  <form action="/login" method="POST" class="auth-form">
-    <div class="form-group">
-      <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+  {{#each errors}}
+  <div class="alerta alerta-erro">⚠️ {{this}}</div>
+  {{/each}}
+  {{#each success}}
+  <div class="alerta alerta-sucesso">✅ {{this}}</div>
+  {{/each}}
+
+  <form action="/login" method="POST">
+    <div class="auth-campos">
+      <div class="auth-campo">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+      </div>
+      <div class="auth-campo">
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" placeholder="••••••••" required autocomplete="current-password" />
+      </div>
     </div>
-    <div class="form-group">
-      <label for="senha">Senha</label>
-      <input type="password" id="senha" name="senha" placeholder="••••••••" required autocomplete="current-password" />
-    </div>
-    <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+    <button type="submit" class="btn-auth">Entrar</button>
   </form>
 
-  <p class="auth-switch">Não tem conta? <a href="/cadastro">Cadastre-se</a></p>
+  <p class="auth-troca">Não tem conta? <a href="/cadastro">Cadastre-se aqui</a></p>
 </div>

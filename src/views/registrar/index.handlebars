@@ -1,0 +1,81 @@
+{{#each errors}}
+<div class="alerta alerta-erro">⚠️ {{this}}</div>
+{{/each}}
+{{#each success}}
+<div class="alerta alerta-sucesso">✅ {{this}}</div>
+{{/each}}
+
+<div class="registrar-header">
+  <h1 class="registrar-titulo">Nova Medição</h1>
+  <p class="registrar-subtitulo">Escolha o tipo e informe os valores</p>
+</div>
+
+<!-- Seletor de tipo -->
+<div class="tipo-selector">
+  <button type="button" class="tipo-btn selecionado" id="btnPressao" onclick="selecionarTipo('pressao')">
+    <span class="tipo-btn-icone">🩸</span>
+    Pressão Arterial
+  </button>
+  <button type="button" class="tipo-btn" id="btnGlicemia" onclick="selecionarTipo('glicemia')">
+    <span class="tipo-btn-icone">💉</span>
+    Glicemia
+  </button>
+</div>
+
+<!-- Formulário Pressão -->
+<div id="formPressaoWrap" class="form-registro">
+  <div class="form-titulo">🩸 Pressão Arterial</div>
+  <form action="/medicoes/pressao" method="POST">
+    <div class="campos-grid campos-2col">
+      <div class="campo">
+        <label for="sistolico">Pressão Sistólica (mmHg)</label>
+        <input type="number" id="sistolico" name="sistolico" min="60" max="300" placeholder="Ex: 120" required />
+        <span class="campo-dica">Entre 60 e 300</span>
+      </div>
+      <div class="campo">
+        <label for="diastolico">Pressão Diastólica (mmHg)</label>
+        <input type="number" id="diastolico" name="diastolico" min="40" max="200" placeholder="Ex: 80" required />
+        <span class="campo-dica">Entre 40 e 200</span>
+      </div>
+    </div>
+    <div class="campos-grid">
+      <div class="campo">
+        <label for="dataHoraPressao">Data e Horário</label>
+        <input type="datetime-local" id="dataHoraPressao" name="dataHora" value="{{dataHoraAtual}}" required />
+      </div>
+    </div>
+    <button type="submit" class="btn-registrar">Registrar Pressão Arterial</button>
+  </form>
+</div>
+
+<!-- Formulário Glicemia -->
+<div id="formGlicemiaWrap" class="form-registro" style="display:none">
+  <div class="form-titulo">💉 Glicemia</div>
+  <form action="/medicoes/glicemia" method="POST">
+    <div class="campos-grid campos-2col">
+      <div class="campo">
+        <label for="valor">Glicemia (mg/dL)</label>
+        <input type="number" id="valor" name="valor" min="20" max="600" step="0.1" placeholder="Ex: 95" required />
+        <span class="campo-dica">Entre 20 e 600</span>
+      </div>
+      <div class="campo">
+        <label for="dataHoraGlicemia">Data e Horário</label>
+        <input type="datetime-local" id="dataHoraGlicemia" name="dataHora" value="{{dataHoraAtual}}" required />
+      </div>
+    </div>
+    <button type="submit" class="btn-registrar">Registrar Glicemia</button>
+  </form>
+</div>
+
+<div class="aviso-medico">
+  ⚠️ Este sistema tem caráter de apoio ao acompanhamento de saúde. Não constitui diagnóstico médico nem substitui avaliação clínica profissional.
+</div>
+
+<script>
+function selecionarTipo(tipo) {
+  document.getElementById('formPressaoWrap').style.display = tipo === 'pressao' ? 'block' : 'none';
+  document.getElementById('formGlicemiaWrap').style.display = tipo === 'glicemia' ? 'block' : 'none';
+  document.getElementById('btnPressao').classList.toggle('selecionado', tipo === 'pressao');
+  document.getElementById('btnGlicemia').classList.toggle('selecionado', tipo === 'glicemia');
+}
+</script>

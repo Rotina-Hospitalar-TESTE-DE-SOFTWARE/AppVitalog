@@ -22,6 +22,7 @@ class ExportController {
     res.render('exportar/index', {
       title: 'Exportar Histórico',
       userName: req.session.userName,
+      activeExportar: true,
       errors: req.flash('error'),
       success: req.flash('success')
     });

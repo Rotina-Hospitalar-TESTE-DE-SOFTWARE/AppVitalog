@@ -13,7 +13,6 @@ function formatDateBR(iso) {
 }
 
 class MedicaoController {
-  // ---- HISTÓRICO ----
   historico(req, res) {
     const medicoes = MedicaoModel.findByUserLast30Days(req.session.userId).map(m => ({
       ...m,
@@ -24,8 +23,9 @@ class MedicaoController {
     }));
 
     res.render('medicoes/historico', {
-      title: 'Histórico de Medições',
+      title: 'Histórico',
       userName: req.session.userName,
+      activeHistorico: true,
       medicoes,
       totalMedicoes: medicoes.length,
       errors: req.flash('error'),
@@ -33,14 +33,13 @@ class MedicaoController {
     });
   }
 
-  // ---- PRESSÃO ARTERIAL ----
   showFormPressao(req, res) {
     const editando = req.params.id ? MedicaoModel.findById(req.params.id) : null;
     res.render('medicoes/pressao', {
-      title: editando ? 'Editar Pressão Arterial' : 'Registrar Pressão Arterial',
+      title: 'Editar Pressão Arterial',
       userName: req.session.userName,
+      activeHistorico: true,
       editando,
-      dataHoraAtual: formatDateTimeLocal(new Date().toISOString()),
       dataHoraEdit: editando ? formatDateTimeLocal(editando.dataHora) : null,
       errors: req.flash('error'),
       success: req.flash('success')
@@ -48,61 +47,54 @@ class MedicaoController {
   }
 
   createPressao(req, res) {
-    const { sistolico, diastolico, dataHora, observacao } = req.body;
+    const { sistolico, diastolico, dataHora } = req.body;
     const errors = [];
-
     if (!sistolico) errors.push('Valor sistólico é obrigatório.');
-    else if (parseInt(sistolico) < 60 || parseInt(sistolico) > 300) errors.push('Valor sistólico deve estar entre 60 e 300 mmHg.');
-
+    else if (parseInt(sistolico) < 60 || parseInt(sistolico) > 300)
+      errors.push('Valor sistólico deve estar entre 60 e 300 mmHg.');
     if (!diastolico) errors.push('Valor diastólico é obrigatório.');
-    else if (parseInt(diastolico) < 40 || parseInt(diastolico) > 200) errors.push('Valor diastólico deve estar entre 40 e 200 mmHg.');
-
+    else if (parseInt(diastolico) < 40 || parseInt(diastolico) > 200)
+      errors.push('Valor diastólico deve estar entre 40 e 200 mmHg.');
     if (!dataHora) errors.push('Data e horário são obrigatórios.');
 
     if (errors.length > 0) {
       errors.forEach(e => req.flash('error', e));
-      return res.redirect('/medicoes/pressao/nova');
+      return res.redirect('/registrar');
     }
-
-    MedicaoModel.createPressao({ userId: req.session.userId, sistolico, diastolico, dataHora, observacao });
-    req.flash('success', 'Medição de pressão arterial registrada com sucesso!');
-    res.redirect('/dashboard');
+    MedicaoModel.createPressao({ userId: req.session.userId, sistolico, diastolico, dataHora, observacao: '' });
+    req.flash('success', 'Pressão arterial registrada com sucesso!');
+    res.redirect('/registrar');
   }
 
   updatePressao(req, res) {
-    const { sistolico, diastolico, dataHora, observacao } = req.body;
+    const { sistolico, diastolico, dataHora } = req.body;
     const medicao = MedicaoModel.findById(req.params.id);
-
     if (!medicao || medicao.userId !== req.session.userId) {
       req.flash('error', 'Medição não encontrada.');
       return res.redirect('/historico');
     }
-
     const errors = [];
     if (!sistolico || parseInt(sistolico) < 60 || parseInt(sistolico) > 300)
       errors.push('Valor sistólico deve estar entre 60 e 300 mmHg.');
     if (!diastolico || parseInt(diastolico) < 40 || parseInt(diastolico) > 200)
       errors.push('Valor diastólico deve estar entre 40 e 200 mmHg.');
     if (!dataHora) errors.push('Data e horário são obrigatórios.');
-
     if (errors.length > 0) {
       errors.forEach(e => req.flash('error', e));
       return res.redirect(`/medicoes/pressao/${req.params.id}/editar`);
     }
-
-    MedicaoModel.update(req.params.id, { sistolico: parseInt(sistolico), diastolico: parseInt(diastolico), dataHora, observacao });
+    MedicaoModel.update(req.params.id, { sistolico: parseInt(sistolico), diastolico: parseInt(diastolico), dataHora });
     req.flash('success', 'Medição atualizada com sucesso!');
     res.redirect('/historico');
   }
 
-  // ---- GLICEMIA ----
   showFormGlicemia(req, res) {
     const editando = req.params.id ? MedicaoModel.findById(req.params.id) : null;
     res.render('medicoes/glicemia', {
-      title: editando ? 'Editar Glicemia' : 'Registrar Glicemia',
+      title: 'Editar Glicemia',
       userName: req.session.userName,
+      activeHistorico: true,
       editando,
-      dataHoraAtual: formatDateTimeLocal(new Date().toISOString()),
       dataHoraEdit: editando ? formatDateTimeLocal(editando.dataHora) : null,
       errors: req.flash('error'),
       success: req.flash('success')
@@ -110,48 +102,41 @@ class MedicaoController {
   }
 
   createGlicemia(req, res) {
-    const { valor, dataHora, observacao } = req.body;
+    const { valor, dataHora } = req.body;
     const errors = [];
-
     if (!valor) errors.push('Valor da glicemia é obrigatório.');
-    else if (parseFloat(valor) < 20 || parseFloat(valor) > 600) errors.push('Valor da glicemia deve estar entre 20 e 600 mg/dL.');
+    else if (parseFloat(valor) < 20 || parseFloat(valor) > 600)
+      errors.push('Valor da glicemia deve estar entre 20 e 600 mg/dL.');
     if (!dataHora) errors.push('Data e horário são obrigatórios.');
-
     if (errors.length > 0) {
       errors.forEach(e => req.flash('error', e));
-      return res.redirect('/medicoes/glicemia/nova');
+      return res.redirect('/registrar');
     }
-
-    MedicaoModel.createGlicemia({ userId: req.session.userId, valor, dataHora, observacao });
-    req.flash('success', 'Medição de glicemia registrada com sucesso!');
-    res.redirect('/dashboard');
+    MedicaoModel.createGlicemia({ userId: req.session.userId, valor, dataHora, observacao: '' });
+    req.flash('success', 'Glicemia registrada com sucesso!');
+    res.redirect('/registrar');
   }
 
   updateGlicemia(req, res) {
-    const { valor, dataHora, observacao } = req.body;
+    const { valor, dataHora } = req.body;
     const medicao = MedicaoModel.findById(req.params.id);
-
     if (!medicao || medicao.userId !== req.session.userId) {
       req.flash('error', 'Medição não encontrada.');
       return res.redirect('/historico');
     }
-
     const errors = [];
     if (!valor || parseFloat(valor) < 20 || parseFloat(valor) > 600)
       errors.push('Valor da glicemia deve estar entre 20 e 600 mg/dL.');
     if (!dataHora) errors.push('Data e horário são obrigatórios.');
-
     if (errors.length > 0) {
       errors.forEach(e => req.flash('error', e));
       return res.redirect(`/medicoes/glicemia/${req.params.id}/editar`);
     }
-
-    MedicaoModel.update(req.params.id, { valor: parseFloat(valor), dataHora, observacao });
+    MedicaoModel.update(req.params.id, { valor: parseFloat(valor), dataHora });
     req.flash('success', 'Medição atualizada com sucesso!');
     res.redirect('/historico');
   }
 
-  // ---- EXCLUSÃO ----
   delete(req, res) {
     const medicao = MedicaoModel.findById(req.params.id);
     if (!medicao || medicao.userId !== req.session.userId) {
