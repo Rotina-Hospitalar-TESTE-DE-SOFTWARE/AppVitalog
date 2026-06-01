@@ -1,5 +1,14 @@
 {
   "users": [
+    {
+      "id": "6330baf8-e891-4e15-8d1c-1f7bc64a588b",
+      "nome": "Rhuan",
+      "email": "rhuan@email.com",
+      "senha": "$2b$10$e8nFvRevqQ6I2ByaXkHXuuL9.4T91RbGyQ/GHR6iiLbR88NsfG4f6",
+      "telefone": "62999999999",
+      "dataNascimento": "2000-01-01",
+      "criadoEm": "2026-06-01T13:28:59.191Z"
+    }
   ],
   "medicoes": []
 }
