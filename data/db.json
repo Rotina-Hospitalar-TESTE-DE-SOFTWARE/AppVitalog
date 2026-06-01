@@ -1,23 +1,43 @@
 {
   "users": [
     {
-      "id": "3b77ff88-472d-4598-ba69-fafd3fcd8de5",
-      "nome": "Maria Silva",
-      "email": "maria.silva@email.com",
-      "senha": "$2b$10$ZDKVSbmjI9TWGz9YhlYZc.FVvpZ7GeJsPnPdZpDkex5pR.mrIbGtS",
-      "telefone": "11999999999",
-      "dataNascimento": "0815-01-20",
-      "criadoEm": "2026-06-01T18:25:35.417Z"
+      "id": "f629ae0d-053e-4351-b3db-508ec61ff7a3",
+      "nome": "Teste Usuario",
+      "email": "teste@email.com",
+      "senha": "$2b$10$OBtCBWM../zdJnK.YByRcuZPxAZT.CjBckWFYLOGkf/elRPOCCSHu",
+      "telefone": "62999999999",
+      "dataNascimento": "0101-01-20",
+      "criadoEm": "2026-06-01T19:12:23.709Z"
     },
     {
-      "id": "a09f410a-133d-4f84-9106-44db0fd1b468",
-      "nome": "111",
-      "email": "maria.silva2@email.com",
-      "senha": "$2b$10$8vVacADou9FquMAcUuzB6umoSxsuwg9j7I6JO24oEaLRyjlKV.2/C",
-      "telefone": "11999999999",
-      "dataNascimento": "0815-01-20",
-      "criadoEm": "2026-06-01T18:25:40.380Z"
+      "id": "5f120d4a-1be3-404f-937b-972293d61950",
+      "nome": "Teste Usuario",
+      "email": "teste2@email.com",
+      "senha": "$2b$10$SMsdqR7lwYkG.LRjXHjH9.gZBbCUpZqsSvo/G.rEHeBjHFUaAb.k.",
+      "telefone": "62999999999",
+      "dataNascimento": "0101-05-20",
+      "criadoEm": "2026-06-01T19:12:29.657Z"
+    },
+    {
+      "id": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "nome": "Rhuan Santos Sousa",
+      "email": "rhuan@gmail.com",
+      "senha": "$2b$10$o9cXSE7rsI46dUJpgkxAJur7GMeSRPCJe19QrbV2le.DQPCKUtsD.",
+      "telefone": "12313123131",
+      "dataNascimento": "2333-12-31",
+      "criadoEm": "2026-06-01T19:20:35.229Z"
     }
   ],
-  "medicoes": []
+  "medicoes": [
+    {
+      "id": "c3a786f7-5046-4020-af86-c489e23bebd7",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "glicemia",
+      "valor": 90,
+      "unidade": "mg/dL",
+      "dataHora": "60601-02-20T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T19:21:03.872Z"
+    }
+  ]
 }

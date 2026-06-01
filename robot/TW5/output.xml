@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-06-01T16:12:20.907983" rpa="false" schemaversion="5">
+<suite id="s1" name="Data" source="C:\Users\Rhuan\Documents\AppVitalog\robot\TW5\data.robot">
+<test id="s1-t1" name="CT01 - Deve cadastrar usuário com data de nascimento válida" line="23">
+<kw name="Dado que o usuário acessa a tela de cadastro" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:21.429508" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastro'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-01T16:12:21.429044" elapsed="1.350856"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-01T16:12:22.780250" elapsed="0.030507"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T16:12:22.811044" elapsed="0.031969"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:21.427779" elapsed="1.415426"/>
+</kw>
+<kw name="Dado que o usuário informa o nome">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:22.844753" level="INFO">Typing text 'Teste Usuario' into text field 'id=nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:22.844345" elapsed="0.138888"/>
+</kw>
+<arg>Teste Usuario</arg>
+<status status="PASS" start="2026-06-01T16:12:22.843849" elapsed="0.139593"/>
+</kw>
+<kw name="E informa a data de nascimento">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:22.984680" level="INFO">Typing text '2000-01-01' into text field 'id=dataNascimento'.</msg>
+<arg>${INPUT_DATA_NASCIMENTO}</arg>
+<arg>${data}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:22.984288" elapsed="0.093110"/>
+</kw>
+<arg>2000-01-01</arg>
+<status status="PASS" start="2026-06-01T16:12:22.983868" elapsed="0.093708"/>
+</kw>
+<kw name="E informa o email">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:23.078776" level="INFO">Typing text 'teste@email.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.078394" elapsed="0.099005"/>
+</kw>
+<arg>teste@email.com</arg>
+<status status="PASS" start="2026-06-01T16:12:23.077976" elapsed="0.099721"/>
+</kw>
+<kw name="E informa o telefone">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:23.179012" level="INFO">Typing text '62999999999' into text field 'id=telefone'.</msg>
+<arg>${INPUT_TELEFONE}</arg>
+<arg>${telefone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.178620" elapsed="0.100665"/>
+</kw>
+<arg>62999999999</arg>
+<status status="PASS" start="2026-06-01T16:12:23.178172" elapsed="0.101291"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:23.280755" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-01T16:12:23.326543" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.280369" elapsed="0.097492"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-06-01T16:12:23.279944" elapsed="0.098084"/>
+</kw>
+<kw name="E confirma a senha">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:23.379191" level="INFO">Typing password into text field 'id=confirmarSenha'.</msg>
+<msg time="2026-06-01T16:12:23.421728" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_CONFIRMAR}</arg>
+<arg>${senha_confirmacao}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.378815" elapsed="0.097439"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-06-01T16:12:23.378414" elapsed="0.098027"/>
+</kw>
+<kw name="Quando solicitar o cadastro">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:23.477563" level="INFO">Clicking element 'css=.btn-auth'.</msg>
+<arg>${BOTAO_CADASTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.477211" elapsed="0.254501"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:23.476842" elapsed="0.255042"/>
+</kw>
+<kw name="Então o sistema não deve apresentar mensagem de erro">
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2026-06-01T16:12:24.733738" level="INFO">Slept 1 second.</msg>
+<arg>1s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2026-06-01T16:12:23.732731" elapsed="1.001228"/>
+</kw>
+<kw name="Page Should Not Contain Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:24.751903" level="INFO">Current page does not contain element 'css=.alerta-erro'.</msg>
+<arg>${MENSAGEM_ERRO}</arg>
+<doc>Verifies that element ``locator`` is not found on the current page.</doc>
+<status status="PASS" start="2026-06-01T16:12:24.734262" elapsed="0.017773"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:23.732333" elapsed="1.019857"/>
+</kw>
+<kw name="E fecha o navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-01T16:12:24.753420" elapsed="2.203228"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:24.752967" elapsed="2.203976"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:21.426391" elapsed="5.530943"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve rejeitar data de nascimento futura" line="33">
+<kw name="Dado que o usuário acessa a tela de cadastro" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:26.961012" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/cadastro'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-01T16:12:26.960394" elapsed="1.765430"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-01T16:12:28.726090" elapsed="0.023676"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_NOME}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T16:12:28.750019" elapsed="0.030660"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:26.959700" elapsed="1.821279"/>
+</kw>
+<kw name="Dado que o usuário informa o nome">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:28.782397" level="INFO">Typing text 'Teste Usuario' into text field 'id=nome'.</msg>
+<arg>${INPUT_NOME}</arg>
+<arg>${nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:28.782009" elapsed="0.123651"/>
+</kw>
+<arg>Teste Usuario</arg>
+<status status="PASS" start="2026-06-01T16:12:28.781543" elapsed="0.124295"/>
+</kw>
+<kw name="E informa a data de nascimento">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:28.907109" level="INFO">Typing text '2050-01-01' into text field 'id=dataNascimento'.</msg>
+<arg>${INPUT_DATA_NASCIMENTO}</arg>
+<arg>${data}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:28.906698" elapsed="0.086056"/>
+</kw>
+<arg>2050-01-01</arg>
+<status status="PASS" start="2026-06-01T16:12:28.906276" elapsed="0.086635"/>
+</kw>
+<kw name="E informa o email">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:28.994201" level="INFO">Typing text 'teste2@email.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:28.993799" elapsed="0.110431"/>
+</kw>
+<arg>teste2@email.com</arg>
+<status status="PASS" start="2026-06-01T16:12:28.993381" elapsed="0.111034"/>
+</kw>
+<kw name="E informa o telefone">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:29.106540" level="INFO">Typing text '62999999999' into text field 'id=telefone'.</msg>
+<arg>${INPUT_TELEFONE}</arg>
+<arg>${telefone}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:29.105808" elapsed="0.108827"/>
+</kw>
+<arg>62999999999</arg>
+<status status="PASS" start="2026-06-01T16:12:29.105048" elapsed="0.109761"/>
+</kw>
+<kw name="E informa a senha">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:29.216252" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-01T16:12:29.262402" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>${senha}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:29.215837" elapsed="0.102898"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-06-01T16:12:29.215276" elapsed="0.103623"/>
+</kw>
+<kw name="E confirma a senha">
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:29.320250" level="INFO">Typing password into text field 'id=confirmarSenha'.</msg>
+<msg time="2026-06-01T16:12:29.362862" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_CONFIRMAR}</arg>
+<arg>${senha_confirmacao}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:29.319838" elapsed="0.102143"/>
+</kw>
+<arg>12345678</arg>
+<status status="PASS" start="2026-06-01T16:12:29.319409" elapsed="0.102742"/>
+</kw>
+<kw name="Quando solicitar o cadastro">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:29.423325" level="INFO">Clicking element 'css=.btn-auth'.</msg>
+<arg>${BOTAO_CADASTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T16:12:29.422943" elapsed="0.259204"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:29.422562" elapsed="0.259758"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem de erro">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2026-06-01T16:12:35.085741" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2026-06-01T16:12:35.086000" level="FAIL">Element 'css=.alerta-erro' not visible after 5 seconds.</msg>
+<arg>${MENSAGEM_ERRO}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2026-06-01T16:12:29.683232" elapsed="5.405635">Element 'css=.alerta-erro' not visible after 5 seconds.</status>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<arg>${MENSAGEM_ERRO}</arg>
+<arg>${mensagem}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="NOT RUN" start="2026-06-01T16:12:35.089158" elapsed="0.000058"/>
+</kw>
+<arg>Data de nascimento não pode ser futura</arg>
+<status status="FAIL" start="2026-06-01T16:12:29.682784" elapsed="5.406640">Element 'css=.alerta-erro' not visible after 5 seconds.</status>
+</kw>
+<kw name="E fecha o navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-01T16:12:35.091353" elapsed="2.211872"/>
+</kw>
+<status status="PASS" start="2026-06-01T16:12:35.090635" elapsed="2.212892"/>
+</kw>
+<status status="FAIL" start="2026-06-01T16:12:26.958533" elapsed="10.345393">Element 'css=.alerta-erro' not visible after 5 seconds.</status>
+</test>
+<status status="FAIL" start="2026-06-01T16:12:20.912119" elapsed="16.393704"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Data" id="s1" pass="1" fail="1" skip="0">Data</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

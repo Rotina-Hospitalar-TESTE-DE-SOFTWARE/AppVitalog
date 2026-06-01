@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-06-01T15:56:32.533257" rpa="false" schemaversion="5">
+<suite id="s1" name="Glicemia" source="C:\Users\Rhuan\Documents\AppVitalog\robot\TW3\glicemia.robot">
+<test id="s1-t1" name="CT01 - Deve registrar glicemia com valor válido" line="26">
+<kw name="Dado que o usuário acessa o sistema e realiza login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:33.076416" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:33.075979" elapsed="1.332179"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.408504" elapsed="0.035424"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.444261" elapsed="0.031470"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:34.476435" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.476003" elapsed="0.122312"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:34.599078" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-01T15:56:34.641957" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.598604" elapsed="0.095988"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:34.695229" level="INFO">Clicking element 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.694851" elapsed="0.226592"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/auth/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-01T15:56:34.921716" elapsed="0.184953"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:35.107199" level="INFO">Opening url 'http://localhost:3000/registrar'</msg>
+<arg>${URL_REGISTRO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.106945" elapsed="0.037348"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:33.074855" elapsed="2.069627"/>
+</kw>
+<kw name="Dado que o usuário seleciona o tipo glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.145477" elapsed="0.024244"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:35.170472" level="INFO">Clicking element 'id=btnGlicemia'.</msg>
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.169997" elapsed="0.089909"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:35.145033" elapsed="0.115064"/>
+</kw>
+<kw name="E informa o valor da glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_VALOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.260994" elapsed="0.079813"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:35.341555" level="INFO">Typing text '95' into text field 'id=valor'.</msg>
+<arg>${INPUT_VALOR}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.341090" elapsed="0.175796"/>
+</kw>
+<arg>95</arg>
+<status status="PASS" start="2026-06-01T15:56:35.260556" elapsed="0.256505"/>
+</kw>
+<kw name="E informa a data e hora">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:35.518397" level="INFO">Typing text '2026-06-01T10:00' into text field 'id=dataHoraGlicemia'.</msg>
+<arg>${INPUT_DATA_HORA}</arg>
+<arg>${dataHora}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.518001" elapsed="0.104209"/>
+</kw>
+<arg>2026-06-01T10:00</arg>
+<status status="PASS" start="2026-06-01T15:56:35.517522" elapsed="0.104872"/>
+</kw>
+<kw name="Quando solicitar o registro da glicemia">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:35.623623" level="INFO">Clicking element 'css=#formGlicemiaWrap .btn-registrar'.</msg>
+<arg>${BOTAO_REGISTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.623260" elapsed="0.081361"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:35.622864" elapsed="0.081917"/>
+</kw>
+<kw name="Então o sistema deve apresentar a mensagem de sucesso">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${MENSAGEM_SUCESSO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:35.705748" elapsed="3.842590"/>
+</kw>
+<kw name="Element Should Contain" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:39.574134" level="INFO">Element 'css=.alerta-sucesso' contains text 'Glicemia registrada com sucesso'.</msg>
+<arg>${MENSAGEM_SUCESSO}</arg>
+<arg>${texto_esperado}</arg>
+<doc>Verifies that element ``locator`` contains text ``expected``.</doc>
+<status status="PASS" start="2026-06-01T15:56:39.548626" elapsed="0.025660"/>
+</kw>
+<arg>Glicemia registrada com sucesso</arg>
+<status status="PASS" start="2026-06-01T15:56:35.705270" elapsed="3.869185"/>
+</kw>
+<kw name="E fecha o navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-01T15:56:39.575446" elapsed="2.183203"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:39.575003" elapsed="2.183877"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:33.073527" elapsed="8.685764"/>
+</test>
+<test id="s1-t2" name="CT02 - Deve validar glicemia inferior ao limite mínimo" line="33">
+<kw name="Dado que o usuário acessa o sistema e realiza login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:41.763208" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:41.762604" elapsed="1.763461"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-01T15:56:43.526327" elapsed="0.023690"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:43.550272" elapsed="0.029239"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:43.580195" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:43.579777" elapsed="0.125642"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:43.706161" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-01T15:56:43.758910" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:43.705738" elapsed="0.109567"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:43.816018" level="INFO">Clicking element 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:43.815589" elapsed="0.364122"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/auth/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.180046" elapsed="0.043541"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.224191" level="INFO">Opening url 'http://localhost:3000/registrar'</msg>
+<arg>${URL_REGISTRO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.223926" elapsed="0.086229"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:41.761838" elapsed="2.548496"/>
+</kw>
+<kw name="Dado que o usuário seleciona o tipo glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.311217" elapsed="0.037159"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.349110" level="INFO">Clicking element 'id=btnGlicemia'.</msg>
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.348662" elapsed="0.073265"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:44.310795" elapsed="0.111359"/>
+</kw>
+<kw name="E informa o valor da glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_VALOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.423740" elapsed="0.023368"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.447858" level="INFO">Typing text '10' into text field 'id=valor'.</msg>
+<arg>${INPUT_VALOR}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.447390" elapsed="0.144562"/>
+</kw>
+<arg>10</arg>
+<status status="PASS" start="2026-06-01T15:56:44.422811" elapsed="0.169334"/>
+</kw>
+<kw name="E informa a data e hora">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.593451" level="INFO">Typing text '2026-06-01T10:00' into text field 'id=dataHoraGlicemia'.</msg>
+<arg>${INPUT_DATA_HORA}</arg>
+<arg>${dataHora}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.593047" elapsed="0.091302"/>
+</kw>
+<arg>2026-06-01T10:00</arg>
+<status status="PASS" start="2026-06-01T15:56:44.592616" elapsed="0.091911"/>
+</kw>
+<kw name="Quando solicitar o registro da glicemia">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.685864" level="INFO">Clicking element 'css=#formGlicemiaWrap .btn-registrar'.</msg>
+<arg>${BOTAO_REGISTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.685463" elapsed="0.072454"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:44.684986" elapsed="0.073105"/>
+</kw>
+<kw name="Então o navegador deve bloquear o campo alertando">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#valor:invalid</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.758939" elapsed="0.021766"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:44.781216" level="INFO">Executing JavaScript:
+return document.getElementById('valor').validationMessage;
+Without any arguments.</msg>
+<msg time="2026-06-01T15:56:44.787464" level="INFO">${mensagem_nativa} = O valor deve ser maior ou igual a 20.</msg>
+<var>${mensagem_nativa}</var>
+<arg>return document.getElementById('valor').validationMessage;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.780961" elapsed="0.006558"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${mensagem_nativa}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.787703" elapsed="0.000621"/>
+</kw>
+<arg>O valor deve ser maior ou igual a 20.</arg>
+<status status="PASS" start="2026-06-01T15:56:44.758518" elapsed="0.029936"/>
+</kw>
+<kw name="E fecha o navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-01T15:56:44.789382" elapsed="2.184984"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:44.789017" elapsed="2.185587"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:41.760560" elapsed="5.214446"/>
+</test>
+<test id="s1-t3" name="CT03 - Deve validar glicemia superior ao limite máximo" line="40">
+<kw name="Dado que o usuário acessa o sistema e realiza login" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:46.978667" level="INFO">Opening browser 'chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL_LOGIN}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:46.978099" elapsed="1.724404"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-01T15:56:48.702951" elapsed="0.037636"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:48.740878" elapsed="0.028824"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:48.770457" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:48.769987" elapsed="0.125656"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:48.896367" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-01T15:56:48.944557" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:48.895925" elapsed="0.108997"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.005547" level="INFO">Clicking element 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.005177" elapsed="0.242698"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/auth/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.248139" elapsed="0.179861"/>
+</kw>
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.428523" level="INFO">Opening url 'http://localhost:3000/registrar'</msg>
+<arg>${URL_REGISTRO}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.428267" elapsed="0.041273"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:46.977406" elapsed="2.492309"/>
+</kw>
+<kw name="Dado que o usuário seleciona o tipo glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.470574" elapsed="0.025588"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.496821" level="INFO">Clicking element 'id=btnGlicemia'.</msg>
+<arg>${BOTAO_TIPO_GLICEMIA}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.496422" elapsed="0.079420"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:49.470185" elapsed="0.105832"/>
+</kw>
+<kw name="E informa o valor da glicemia">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_VALOR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.576923" elapsed="0.026730"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.604393" level="INFO">Typing text '700' into text field 'id=valor'.</msg>
+<arg>${INPUT_VALOR}</arg>
+<arg>${valor}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.603947" elapsed="0.102237"/>
+</kw>
+<arg>700</arg>
+<status status="PASS" start="2026-06-01T15:56:49.576502" elapsed="0.129860"/>
+</kw>
+<kw name="E informa a data e hora">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.707615" level="INFO">Typing text '2026-06-01T10:00' into text field 'id=dataHoraGlicemia'.</msg>
+<arg>${INPUT_DATA_HORA}</arg>
+<arg>${dataHora}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.707228" elapsed="0.105274"/>
+</kw>
+<arg>2026-06-01T10:00</arg>
+<status status="PASS" start="2026-06-01T15:56:49.706803" elapsed="0.105874"/>
+</kw>
+<kw name="Quando solicitar o registro da glicemia">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.813863" level="INFO">Clicking element 'css=#formGlicemiaWrap .btn-registrar'.</msg>
+<arg>${BOTAO_REGISTRAR}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.813461" elapsed="0.100180"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:49.813091" elapsed="0.100724"/>
+</kw>
+<kw name="Então o navegador deve bloquear o campo alertando">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>css=#valor:invalid</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.914759" elapsed="0.023145"/>
+</kw>
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-01T15:56:49.938437" level="INFO">Executing JavaScript:
+return document.getElementById('valor').validationMessage;
+Without any arguments.</msg>
+<msg time="2026-06-01T15:56:49.945431" level="INFO">${mensagem_nativa} = O valor deve ser menor ou igual a 600.</msg>
+<var>${mensagem_nativa}</var>
+<arg>return document.getElementById('valor').validationMessage;</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.938177" elapsed="0.007314"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${mensagem_nativa}</arg>
+<arg>${mensagem_esperada}</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.945696" elapsed="0.000569"/>
+</kw>
+<arg>O valor deve ser menor ou igual a 600.</arg>
+<status status="PASS" start="2026-06-01T15:56:49.914293" elapsed="0.032111"/>
+</kw>
+<kw name="E fecha o navegador" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-01T15:56:49.947219" elapsed="2.159819"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:49.946877" elapsed="2.160367"/>
+</kw>
+<status status="PASS" start="2026-06-01T15:56:46.976203" elapsed="5.131313"/>
+</test>
+<status status="PASS" start="2026-06-01T15:56:32.535506" elapsed="19.573014"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Glicemia" id="s1" pass="3" fail="0" skip="0">Glicemia</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
