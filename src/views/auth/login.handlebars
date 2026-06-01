@@ -1,30 +1,40 @@
 <div class="auth-caixa">
-  <div class="auth-logo-box">
-    <div class="auth-logo-icone">❤️</div>
-    <div class="auth-logo-nome">Monitor<span>Saúde</span></div>
-    <div class="auth-logo-sub">Acompanhe sua saúde com facilidade</div>
-  </div>
 
   {{#each errors}}
-  <div class="alerta alerta-erro">⚠️ {{this}}</div>
+    <div class="alerta alerta-erro">⚠️ {{this}}</div>
   {{/each}}
   {{#each success}}
-  <div class="alerta alerta-sucesso">✅ {{this}}</div>
+    <div class="alerta alerta-sucesso">✅ {{this}}</div>
   {{/each}}
 
   <form action="/login" method="POST">
     <div class="auth-campos">
       <div class="auth-campo">
         <label for="email">E-mail</label>
-        <input type="email" id="email" name="email" placeholder="seu@email.com" required autocomplete="email" />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="seu@email.com"
+          required
+          autocomplete="email"
+        />
       </div>
       <div class="auth-campo">
         <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" placeholder="••••••••" required autocomplete="current-password" />
+        <input
+          type="password"
+          id="senha"
+          name="senha"
+          placeholder="••••••••"
+          required
+          autocomplete="current-password"
+        />
       </div>
     </div>
     <button type="submit" class="btn-auth">Entrar</button>
   </form>
 
-  <p class="auth-troca">Não tem conta? <a href="/cadastro">Cadastre-se aqui</a></p>
+  <p class="auth-troca">Não tem conta?
+    <a href="/cadastro">Cadastre-se aqui</a></p>
 </div>

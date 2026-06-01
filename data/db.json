@@ -1,14 +1,92 @@
 {
   "users": [
     {
-      "id": "6330baf8-e891-4e15-8d1c-1f7bc64a588b",
-      "nome": "Rhuan",
-      "email": "rhuan@email.com",
-      "senha": "$2b$10$e8nFvRevqQ6I2ByaXkHXuuL9.4T91RbGyQ/GHR6iiLbR88NsfG4f6",
+      "id": "678fb638-8d41-472f-b9a5-0b79646ae82d",
+      "nome": "Maria Silva",
+      "email": "maria.silva@email.com",
+      "senha": "$2b$10$YlCc03FKx8j3z3KhnE9zAu69V2RMvcTB4ij68WuWqL6oQfEWk4woG",
+      "telefone": "11999999999",
+      "dataNascimento": "15/08/2000",
+      "criadoEm": "2026-06-01T16:34:53.385Z"
+    },
+    {
+      "id": "55a98aaf-86d1-4653-a675-fc31fd847eb7",
+      "nome": "Test",
+      "email": "test@email.com",
+      "senha": "$2b$10$olLCe3nrcoT33J0df4XDDefqVMtiK1umaIwriMC3jKQ9mKKc.UCga",
       "telefone": "62999999999",
       "dataNascimento": "2000-01-01",
-      "criadoEm": "2026-06-01T13:28:59.191Z"
+      "criadoEm": "2026-06-01T16:57:38.822Z"
+    },
+    {
+      "id": "748df10b-3ee6-4187-9658-9b3bc00041fb",
+      "nome": "Test",
+      "email": "test2@email.com",
+      "senha": "$2b$10$e3Gj0JkHwRpYBJsVLZQTP.NtpiZKV2RtHGfKemU3/4xs/ccQs3omO",
+      "telefone": "62999999999",
+      "dataNascimento": "2050-01-01",
+      "criadoEm": "2026-06-01T16:57:57.331Z"
+    },
+    {
+      "id": "9ae8db46-8ec2-4293-b6bf-53c9e8fb9328",
+      "nome": "Joao Pedro",
+      "email": "joaopedro@email.com",
+      "senha": "$2b$10$X/ly5bhCAr1v/Satj03eK.daAyqgYRVl3NenEUfazD6nSIOyYdboi",
+      "telefone": "11999999999",
+      "dataNascimento": "15/08/2000",
+      "criadoEm": "2026-06-01T17:06:31.787Z"
     }
   ],
-  "medicoes": []
+  "medicoes": [
+    {
+      "id": "644a3894-eb78-4938-87ba-67099c65cbf5",
+      "userId": "6dc92d8d-a721-44ea-8207-355f6d811e62",
+      "tipo": "glicemia",
+      "valor": 95,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T16:51:12.031Z"
+    },
+    {
+      "id": "f7088275-158b-4295-babc-3d4d4ea9d542",
+      "userId": "6dc92d8d-a721-44ea-8207-355f6d811e62",
+      "tipo": "glicemia",
+      "valor": 10,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T16:51:23.120Z"
+    },
+    {
+      "id": "dd6dbbc9-75e8-44e8-80ef-7b0042f6406a",
+      "userId": "6dc92d8d-a721-44ea-8207-355f6d811e62",
+      "tipo": "glicemia",
+      "valor": 700,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T16:51:37.205Z"
+    },
+    {
+      "id": "c1fb2aeb-87b8-43bd-bd46-7882d36e2a79",
+      "userId": "9ae8db46-8ec2-4293-b6bf-53c9e8fb9328",
+      "tipo": "glicemia",
+      "valor": 90,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T17:12:36.769Z"
+    },
+    {
+      "id": "b211dfed-8549-4a40-85a6-2a71a2195f34",
+      "userId": "9ae8db46-8ec2-4293-b6bf-53c9e8fb9328",
+      "tipo": "glicemia",
+      "valor": -60,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-01T17:12:42.969Z"
+    }
+  ]
 }
