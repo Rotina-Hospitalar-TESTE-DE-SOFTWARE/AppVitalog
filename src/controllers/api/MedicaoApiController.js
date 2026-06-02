@@ -102,10 +102,29 @@ class MedicaoApiController {
 
   criarGlicemia(req, res) {
     const { valor, dataHora } = req.body;
+    const errors = [];
+    const valorNumerico = parseFloat(valor);
+
+    if (valor === undefined || valor === null || valor === "") {
+      errors.push("Valor da glicemia é obrigatório.");
+    } else if (Number.isNaN(valorNumerico) || valorNumerico < 20 || valorNumerico > 600) {
+      errors.push("Valor da glicemia deve estar entre 20 e 600 mg/dL.");
+    }
+
+    if (!dataHora) {
+      errors.push("Data e horário são obrigatórios.");
+    }
+
+    if (errors.length) {
+      return res.status(400).json({
+        success: false,
+        errors,
+      });
+    }
 
     const medicao = MedicaoModel.createGlicemia({
       userId: req.session.userId,
-      valor,
+      valor: valorNumerico,
       dataHora,
       observacao: "",
     });

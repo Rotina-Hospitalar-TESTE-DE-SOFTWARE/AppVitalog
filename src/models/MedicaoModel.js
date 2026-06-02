@@ -1,5 +1,5 @@
 const db = require('../config/database');
-const { v4: uuidv4 } = require('uuid');
+const { randomUUID } = require('crypto');
 
 class MedicaoModel {
   static findByUser(userId) {
@@ -34,7 +34,7 @@ class MedicaoModel {
   static createPressao({ userId, sistolico, diastolico, dataHora, observacao }) {
     db.read();
     const medicao = {
-      id: uuidv4(),
+      id: randomUUID(),
       userId,
       tipo: 'pressao',
       sistolico: parseInt(sistolico),
@@ -52,7 +52,7 @@ class MedicaoModel {
   static createGlicemia({ userId, valor, dataHora, observacao }) {
     db.read();
     const medicao = {
-      id: uuidv4(),
+      id: randomUUID(),
       userId,
       tipo: 'glicemia',
       valor: parseFloat(valor),

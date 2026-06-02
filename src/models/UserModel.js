@@ -1,6 +1,6 @@
 const db = require('../config/database');
 const bcrypt = require('bcryptjs');
-const { v4: uuidv4 } = require('uuid');
+const { randomUUID } = require('crypto');
 
 class UserModel {
   static findAll() {
@@ -22,7 +22,7 @@ class UserModel {
     db.read();
     const hash = bcrypt.hashSync(senha, 10);
     const user = {
-      id: uuidv4(),
+      id: randomUUID(),
       nome,
       email: email.toLowerCase(),
       senha: hash,

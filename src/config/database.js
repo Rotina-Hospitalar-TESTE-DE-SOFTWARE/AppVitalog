@@ -1,5 +1,3 @@
-const { LowSync } = require('lowdb');
-const { JSONFileSync } = require('lowdb/node');
 const path = require('path');
 const fs = require('fs');
 
@@ -13,8 +11,25 @@ const defaultData = {
   medicoes: []
 };
 
-const adapter = new JSONFileSync(dbPath);
-const db = new LowSync(adapter, defaultData);
+const db = {
+  data: defaultData,
+
+  read() {
+    if (!fs.existsSync(dbPath)) {
+      this.data = { ...defaultData };
+      return;
+    }
+
+    const content = fs.readFileSync(dbPath, 'utf8').trim();
+    this.data = content ? JSON.parse(content) : { ...defaultData };
+    this.data.users = this.data.users || [];
+    this.data.medicoes = this.data.medicoes || [];
+  },
+
+  write() {
+    fs.writeFileSync(dbPath, JSON.stringify(this.data, null, 2));
+  }
+};
 
 db.read();
 if (!db.data) db.data = defaultData;
