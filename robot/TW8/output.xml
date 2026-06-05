@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.4.2 (Python 3.14.5 on win32)" generated="2026-06-05T15:19:29.856790" rpa="false" schemaversion="5">
+<suite id="s1" name="Logout" source="C:\Users\Rhuan\Documents\AppVitalog\robot\tw8\logout.robot">
+<test id="s1-t1" name="CT01 - Logout executado log disponivel" line="17">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:30.418720" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-05T15:19:30.418274" elapsed="1.339690"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-05T15:19:31.758307" elapsed="0.031832"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:30.417184" elapsed="1.373161"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:31.791267" elapsed="0.030290"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:31.822307" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:31.821848" elapsed="0.123617"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:31.946248" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-05T15:19:32.000349" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:31.945761" elapsed="0.107571"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:32.053983" level="INFO">Clicking button 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.053597" elapsed="0.405181"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.459042" elapsed="0.007188"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:31.790847" elapsed="0.675716"/>
+</kw>
+<kw name="Executar Logout">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_LOGOUT}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.467971" elapsed="0.028613"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:32.497273" level="INFO">Clicking element 'xpath=//*[contains(text(), 'Sair') or @id='btnLogout']'.</msg>
+<arg>${BTN_LOGOUT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.496861" elapsed="0.088269"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:32.467268" elapsed="0.118041"/>
+</kw>
+<kw name="Verificar Logout Realizado">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.586108" elapsed="0.021087"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.607462" elapsed="0.016541"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:32.585720" elapsed="0.038455"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-05T15:19:32.624645" elapsed="2.141056"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:30.415654" elapsed="4.350544"/>
+</test>
+<test id="s1-t2" name="CT02 - Logout executado log indisponivel" line="22">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:34.769202" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-05T15:19:34.768879" elapsed="1.717724"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.486874" elapsed="0.022210"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:34.768472" elapsed="1.740779"/>
+</kw>
+<kw name="Simular Sistema De Log Indisponivel">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:36.510380" level="INFO">Executing JavaScript:
+console.log('Sistema de log simulado como indisponível no frontend');
+Without any arguments.</msg>
+<arg>console.log('Sistema de log simulado como indisponível no frontend');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.510094" elapsed="0.012414"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:36.509701" elapsed="0.013031"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.523545" elapsed="0.026626"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:36.550878" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.550436" elapsed="0.128531"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:36.680195" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-05T15:19:36.731209" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.679425" elapsed="0.107830"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:36.787900" level="INFO">Clicking button 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:36.787516" elapsed="0.255407"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.043205" elapsed="0.143874"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:36.523150" elapsed="0.664124"/>
+</kw>
+<kw name="Executar Logout">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BTN_LOGOUT}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.188130" elapsed="0.025992"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:37.214795" level="INFO">Clicking element 'xpath=//*[contains(text(), 'Sair') or @id='btnLogout']'.</msg>
+<arg>${BTN_LOGOUT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.214393" elapsed="0.093148"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:37.187718" elapsed="0.119996"/>
+</kw>
+<kw name="Verificar Logout Realizado">
+<kw name="Wait Until Location Contains" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the current URL contains ``expected``.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.308498" elapsed="0.023483"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.332247" elapsed="0.017931"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:37.308118" elapsed="0.042237"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-05T15:19:37.350837" elapsed="2.130179"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:34.767486" elapsed="4.713912"/>
+</test>
+<test id="s1-t3" name="CT03 - Logout nao executado log disponivel" line="28">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:39.483941" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-05T15:19:39.483638" elapsed="1.192208"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-05T15:19:40.676124" elapsed="0.037130"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:39.483210" elapsed="1.230217"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:40.714293" elapsed="0.026956"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:40.741988" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:40.741512" elapsed="0.119688"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:40.861893" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-05T15:19:40.904364" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:40.861472" elapsed="0.097293"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:40.959428" level="INFO">Clicking button 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:40.959058" elapsed="0.396820"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-05T15:19:41.356146" elapsed="0.035728"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:40.713897" elapsed="0.678692"/>
+</kw>
+<kw name="Verificar Nenhum Logout">
+<kw name="Location Should Not Contain">
+<msg time="2026-06-05T15:19:41.398960" level="FAIL">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</msg>
+<arg>/login</arg>
+<status status="FAIL" start="2026-06-05T15:19:41.398807" elapsed="0.000322">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</kw>
+<status status="FAIL" start="2026-06-05T15:19:41.393757" elapsed="0.005795">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-05T15:19:41.400412" elapsed="2.153869"/>
+</kw>
+<status status="FAIL" start="2026-06-05T15:19:39.482500" elapsed="4.072144">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</test>
+<test id="s1-t4" name="CT04 - Logout nao executado log indisponivel" line="32">
+<kw name="Abrir Navegador" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:43.557528" level="INFO">Opening browser 'Chrome' to base url 'http://localhost:3000/login'.</msg>
+<arg>${URL}/login</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2026-06-05T15:19:43.557198" elapsed="1.753331"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.310790" elapsed="0.027278"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:43.556788" elapsed="1.781531"/>
+</kw>
+<kw name="Simular Sistema De Log Indisponivel">
+<kw name="Execute Javascript" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:45.339471" level="INFO">Executing JavaScript:
+console.log('Sistema de log simulado como indisponível no frontend');
+Without any arguments.</msg>
+<arg>console.log('Sistema de log simulado como indisponível no frontend');</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.339240" elapsed="0.008397"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:45.338849" elapsed="0.008964"/>
+</kw>
+<kw name="Realizar Login">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${INPUT_EMAIL}</arg>
+<arg>timeout=5s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.348626" elapsed="0.027889"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:45.377281" level="INFO">Typing text 'rhuan@gmail.com' into text field 'id=email'.</msg>
+<arg>${INPUT_EMAIL}</arg>
+<arg>rhuan@gmail.com</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.376802" elapsed="0.121646"/>
+</kw>
+<kw name="Input Password" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:45.499229" level="INFO">Typing password into text field 'id=senha'.</msg>
+<msg time="2026-06-05T15:19:45.541664" level="INFO">Temporally setting log level to: NONE</msg>
+<arg>${INPUT_SENHA}</arg>
+<arg>123456</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.498798" elapsed="0.094256"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2026-06-05T15:19:45.593729" level="INFO">Clicking button 'css=.btn-auth'.</msg>
+<arg>${BOTAO_LOGIN}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.593308" elapsed="0.385530"/>
+</kw>
+<kw name="Wait Until Location Does Not Contain" owner="SeleniumLibrary">
+<arg>/login</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the current URL does not contains ``location``.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.979100" elapsed="0.008051"/>
+</kw>
+<status status="PASS" start="2026-06-05T15:19:45.348235" elapsed="0.639093"/>
+</kw>
+<kw name="Verificar Nenhum Logout">
+<kw name="Location Should Not Contain">
+<msg time="2026-06-05T15:19:45.993041" level="FAIL">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</msg>
+<arg>/login</arg>
+<status status="FAIL" start="2026-06-05T15:19:45.992899" elapsed="0.000360">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</kw>
+<status status="FAIL" start="2026-06-05T15:19:45.988015" elapsed="0.005622">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-06-05T15:19:45.994258" elapsed="2.154057"/>
+</kw>
+<status status="FAIL" start="2026-06-05T15:19:43.555841" elapsed="4.592857">No keyword with name 'Location Should Not Contain' found. Did you mean:
+    SeleniumLibrary.Location Should Contain</status>
+</test>
+<status status="FAIL" start="2026-06-05T15:19:29.859039" elapsed="18.291063"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Logout" id="s1" pass="2" fail="2" skip="0">Logout</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

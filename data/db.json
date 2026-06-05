@@ -26,6 +26,15 @@
       "telefone": "12313123131",
       "dataNascimento": "2333-12-31",
       "criadoEm": "2026-06-01T19:20:35.229Z"
+    },
+    {
+      "id": "960ed8f7-c565-4ba7-94e3-a37fc268c42e",
+      "nome": "Joao Pedro",
+      "email": "joaopedro@email.com",
+      "senha": "$2b$10$g6nK1WQNIbrUp3jKuNFmMOyxOqe.6LeVObIVZR/R6./jLkV1zIrwm",
+      "telefone": "11999999999",
+      "dataNascimento": "15/08/2000",
+      "criadoEm": "2026-06-05T00:48:10.199Z"
     }
   ],
   "medicoes": [
@@ -38,6 +47,104 @@
       "dataHora": "60601-02-20T10:00",
       "observacao": "",
       "criadoEm": "2026-06-01T19:21:03.872Z"
+    },
+    {
+      "id": "bbaffc8c-e968-47a5-8380-1c5b77f45636",
+      "userId": "960ed8f7-c565-4ba7-94e3-a37fc268c42e",
+      "tipo": "glicemia",
+      "valor": 95,
+      "unidade": "mg/dL",
+      "dataHora": "2026-06-01T10:00",
+      "observacao": "",
+      "criadoEm": "2026-06-05T00:48:18.210Z"
+    },
+    {
+      "id": "91317909-80ab-4055-befb-6c9274724b75",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "60605-02-20T14:00",
+      "observacao": "",
+      "criadoEm": "2026-06-05T17:44:10.879Z"
+    },
+    {
+      "id": "0b7a8c5d-8b83-4358-baa3-b60bcb19e891",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "60605-02-20T14:00",
+      "observacao": "",
+      "criadoEm": "2026-06-05T17:44:30.851Z"
+    },
+    {
+      "id": "8a24fed6-bbfa-4074-89b0-bff3f3e56705",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "60605-02-20T14:00",
+      "observacao": "",
+      "criadoEm": "2026-06-05T17:44:34.648Z"
+    },
+    {
+      "id": "1373133b-8afd-4a79-8490-8767ff665a88",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "60605-02-20T14:00",
+      "observacao": "",
+      "criadoEm": "2026-06-05T17:48:07.554Z"
+    },
+    {
+      "id": "c0486fab-51d3-4dc9-956f-edbae1ef54a7",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "2026-06-05T15:14",
+      "observacao": "",
+      "criadoEm": "2026-06-05T18:14:27.882Z"
+    },
+    {
+      "id": "df23246c-5a52-4988-a8f0-bcd08294dd1d",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "2026-06-05T15:14",
+      "observacao": "",
+      "criadoEm": "2026-06-05T18:14:35.131Z"
+    },
+    {
+      "id": "a1ead498-c805-46c9-b74b-b893541b80a1",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "2026-06-05T15:15",
+      "observacao": "",
+      "criadoEm": "2026-06-05T18:15:40.782Z"
+    },
+    {
+      "id": "cf08dc04-97b9-4437-b0e0-bdfbe4214c31",
+      "userId": "e5074b98-c95d-480b-bc20-2db8560deec5",
+      "tipo": "pressao",
+      "sistolico": 120,
+      "diastolico": 80,
+      "unidade": "mmHg",
+      "dataHora": "2026-06-05T15:15",
+      "observacao": "",
+      "criadoEm": "2026-06-05T18:15:48.121Z"
     }
   ]
 }
